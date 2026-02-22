@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ohio Scripts | Only in Ohio</title>
+<title>Ohio Scripts | Premium Hub</title>
 
 <style>
 :root {
@@ -20,7 +20,7 @@ body {
   overflow: hidden; 
   color: #fff; 
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
   background: #000;
 }
@@ -35,41 +35,41 @@ body {
 .video-wrapper video {
   width: 100%; height: 100%;
   object-fit: cover;
-  filter: brightness(0.3) contrast(1.2) sepia(0.2);
+  filter: brightness(0.4) contrast(1.1);
 }
 
 .video-overlay {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(circle, transparent 10%, rgba(15, 5, 0, 0.9) 100%);
+  background: radial-gradient(circle, transparent 20%, rgba(10,5,0,0.8) 100%);
   z-index: -1;
 }
 
 /* MAIN UI CONTAINER */
 .container { 
   max-width: 420px; width: 92%;
-  background: rgba(20, 10, 0, 0.5);
+  background: rgba(15, 10, 5, 0.4);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 28px; 
   padding: 35px; 
-  border: 1px solid rgba(255, 102, 0, 0.2);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 15px rgba(255, 102, 0, 0.1);
+  border: 1px solid rgba(255, 102, 0, 0.15);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.7);
   text-align: center;
   animation: entrance 0.8s ease-out;
 }
 
 @keyframes entrance {
-  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
   to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-h1 { font-size: 34px; font-weight: 900; letter-spacing: -1px; margin-bottom: 5px; color: #fff; text-shadow: 0 0 10px rgba(255, 102, 0, 0.5); }
-.subtitle { opacity: 0.6; font-size: 10px; letter-spacing: 4px; margin-bottom: 20px; text-transform: uppercase; color: var(--primary); }
+h1 { font-size: 34px; font-weight: 800; letter-spacing: -1px; margin-bottom: 5px; }
+.subtitle { opacity: 0.5; font-size: 10px; letter-spacing: 4px; margin-bottom: 20px; text-transform: uppercase; }
 
 .status-pill {
   background: rgba(255, 102, 0, 0.1);
-  color: #ff8c00;
+  color: #ff6600;
   padding: 6px 14px;
   border-radius: 50px;
   font-size: 11px;
@@ -78,16 +78,16 @@ h1 { font-size: 34px; font-weight: 900; letter-spacing: -1px; margin-bottom: 5px
   align-items: center;
   gap: 8px;
   margin-bottom: 25px;
-  border: 1px solid rgba(255, 102, 0, 0.3);
+  border: 1px solid rgba(255, 102, 0, 0.2);
 }
 
 .script-box {
   position: relative;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.5);
   padding: 18px;
   border-radius: 18px;
   margin-bottom: 15px;
-  border: 1px solid rgba(255, 102, 0, 0.1);
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 pre { 
@@ -122,7 +122,7 @@ button, .discord-btn {
 #unlockBtn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,0,0,0.3); }
 
 #copyBtn { background: var(--primary); color: #fff; }
-#copyBtn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(255, 102, 0, 0.4); }
+#copyBtn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 102, 0, 0.3); }
 
 .discord-btn { background: #5865F2; color: #fff; }
 .discord-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(88, 101, 242, 0.3); }
@@ -130,19 +130,19 @@ button, .discord-btn {
 .features-list {
   text-align: left;
   margin-top: 25px;
-  background: rgba(255, 102, 0, 0.05);
+  background: rgba(255,255,255,0.03);
   padding: 15px;
   border-radius: 15px;
 }
 
-.features-list div { font-size: 12px; opacity: 0.8; line-height: 1.8; color: #ffccaa; }
+.features-list div { font-size: 12px; opacity: 0.7; line-height: 1.8; }
 
 .counter-text { font-size: 11px; opacity: 0.4; margin-top: 20px; font-weight: bold; }
 
 /* TOAST */
 .toast {
   position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
-  background: var(--primary); color: #fff; padding: 12px 30px; border-radius: 50px;
+  background: #fff; color: #000; padding: 12px 30px; border-radius: 50px;
   font-weight: 800; transition: 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28); opacity: 0; z-index: 10;
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
@@ -159,27 +159,27 @@ button, .discord-btn {
 
 <div class="container">
   <h1>Ohio Scripts</h1>
-  <div class="subtitle">Only in Ohio Hub</div>
+  <div class="subtitle">Premium Scripting</div>
 
   <div class="status-pill">
-    <span style="color:#ff6600">●</span> <span id="users">402</span> DEPLOYED IN OHIO
+    <span style="color:#ff6600">●</span> <span id="users">182</span> ACTIVE NOW
   </div>
 
   <div class="script-box">
     <pre id="scriptBox" class="locked">loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()</pre>
-    <div id="lockIcon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:24px;">💀</div>
+    <div id="lockIcon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:24px;">🔒</div>
   </div>
 
   <button id="unlockBtn" onclick="subscribeUnlock()">▶ SUBSCRIBE TO UNLOCK</button>
   
-  <button id="copyBtn" onclick="copyScript()" style="display:none;">📋 COPY OHIO SCRIPT</button>
+  <button id="copyBtn" onclick="copyScript()" style="display:none;">📋 COPY TO CLIPBOARD</button>
   
   <a href="https://discord.gg/VVzPXAG5d" target="_blank" id="discordBtn" class="discord-btn" style="display:none;">
     <span style="margin-right:10px;">👾</span> JOIN DISCORD
   </a>
 
   <div class="features-list">
-    <div style="color:var(--primary); font-weight:800; margin-bottom:5px;">OHIO FEATURES</div>
+    <div style="color:var(--primary); font-weight:800; margin-bottom:5px;">HUB FEATURES</div>
     <div>
       • Brainrot Duper (V2)<br>
       • Instant Token Multiplier<br>
@@ -188,11 +188,11 @@ button, .discord-btn {
   </div>
 
   <div class="counter-text">
-    TOTAL OHIO COPIES: <span id="copies">12,842</span>
+    GLOBAL COPIES: <span id="copies">5,402</span>
   </div>
 </div>
 
-<div id="toast" class="toast">SCRIPT COPIED! 💀</div>
+<div id="toast" class="toast">SCRIPT COPIED! 🚀</div>
 
 <script>
 const scriptBox = document.getElementById("scriptBox");
@@ -202,18 +202,15 @@ const copyBtn = document.getElementById("copyBtn");
 const discordBtn = document.getElementById("discordBtn");
 const copySpan = document.getElementById("copies");
 
-// Real-time counter logic
-let currentCopies = parseInt(localStorage.getItem("ohioCopies")) || 12842;
+let currentCopies = parseInt(localStorage.getItem("ohioTotalCopies")) || 5402;
 copySpan.innerText = currentCopies.toLocaleString();
 
-// Persistence Check
 if(localStorage.getItem("ohioUnlocked") === "true") { 
   unlockContent(); 
 }
 
 function subscribeUnlock() {
   localStorage.setItem("ohioUnlocked", "true");
-  // UPDATED YT LINK
   window.open("https://www.youtube.com/@TheOhioScripts", "_blank");
 }
 
@@ -225,7 +222,6 @@ function unlockContent() {
   discordBtn.style.display = "flex";
 }
 
-// Auto-reveal when user returns to site
 window.addEventListener("focus", () => {
   if(localStorage.getItem("ohioUnlocked") === "true") { 
     unlockContent(); 
@@ -234,21 +230,19 @@ window.addEventListener("focus", () => {
 
 function copyScript() {
   navigator.clipboard.writeText(scriptBox.innerText);
-  
   currentCopies++;
   copySpan.innerText = currentCopies.toLocaleString();
-  localStorage.setItem("ohioCopies", currentCopies);
+  localStorage.setItem("ohioTotalCopies", currentCopies);
   
   const toast = document.getElementById("toast");
   toast.classList.add("show");
   setTimeout(() => toast.classList.remove("show"), 2500);
 }
 
-// Online user sim (Slightly higher for Ohio)
-let users = 402;
+let users = 182;
 setInterval(() => {
-  users += Math.floor(Math.random() * 7) - 3;
-  document.getElementById("users").innerText = Math.max(350, users);
+  users += Math.floor(Math.random() * 5) - 2;
+  document.getElementById("users").innerText = Math.max(150, users);
 }, 3000);
 </script>
 
