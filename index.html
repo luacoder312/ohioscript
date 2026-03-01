@@ -80,12 +80,6 @@
         }
         .search-container input:focus { border-color: var(--primary-glow); box-shadow: 0 0 20px rgba(99, 102, 241, 0.2); }
 
-        /* --- HERO --- */
-        .hero { text-align: center; margin-bottom: 60px; padding: 0 20px; }
-        .update-tag { background: rgba(99, 102, 241, 0.15); color: var(--primary-glow); padding: 8px 20px; border-radius: 50px; font-size: 11px; font-weight: 800; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(99, 102, 241, 0.2); }
-        .hero h2 { font-size: 42px; font-weight: 900; text-transform: uppercase; font-style: italic; line-height: 1.1; }
-        .hero h2 span { background: linear-gradient(to bottom, #a5b4fc, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
         /* --- TITLES --- */
         .section-title { padding-left: 5%; font-size: 22px; font-weight: 900; font-style: italic; text-transform: uppercase; margin-bottom: 25px; margin-top: 40px; border-left: 4px solid var(--primary-glow); margin-left: 5%; }
 
@@ -99,7 +93,7 @@
         }
 
         .card-header { display: flex; align-items: center; gap: 20px; margin-bottom: 15px; }
-        .game-icon { width: 70px; height: 70px; border-radius: 18px; object-fit: cover; border: 2px solid rgba(99, 102, 241, 0.2); }
+        .game-icon { width: 70px; height: 70px; border-radius: 18px; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); background: #000; }
 
         .status-tag { font-size: 10px; font-weight: 800; color: var(--success); text-transform: uppercase; display: flex; align-items: center; gap: 5px; }
         .download-tag { font-size: 10px; font-weight: 800; color: var(--warning); text-transform: uppercase; }
@@ -113,30 +107,25 @@
             overflow: hidden; text-overflow: ellipsis; white-space: nowrap; border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .copy-btn, .dl-btn { 
+        .dl-btn, .copy-btn { 
             width: 100%; background: var(--primary-glow); color: white; border: none; 
             padding: 16px; border-radius: 15px; font-weight: 800; cursor: pointer; transition: 0.3s; 
             text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px;
         }
-        .copy-btn:hover, .dl-btn:hover { background: var(--accent-purple); transform: translateY(-3px); box-shadow: 0 8px 15px rgba(99, 102, 241, 0.2); }
+        .dl-btn:hover { background: var(--accent-purple); transform: translateY(-3px); }
 
         /* --- BOT --- */
         .help-container { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; align-items: flex-end; z-index: 100; }
-        .help-bubble { background: var(--accent-purple); padding: 8px 15px; border-radius: 15px 15px 5px 15px; font-size: 11px; font-weight: bold; margin-bottom: 10px; }
-        .bot-btn { width: 65px; height: 65px; background: linear-gradient(135deg, var(--primary-glow), var(--accent-purple)); border-radius: 22px; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); }
-
-        #toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px); background: var(--success); padding: 12px 30px; border-radius: 50px; font-weight: bold; transition: 0.5s; z-index: 1000; }
-        #toast.show { transform: translateX(-50%) translateY(0); }
+        .bot-btn { width: 65px; height: 65px; background: linear-gradient(135deg, var(--primary-glow), var(--accent-purple)); border-radius: 22px; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <div id="particle-container"></div>
-    <div id="toast">SCRIPT COPIED! 📋</div>
 
     <header>
         <div class="logo-img">
-            <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477547833383977092/392206df-19ba-4c55-9336-8ce993927115.jpg?ex=69a52926&is=69a3d7a6&hm=e0e176e976739b270225554580b98b63b3053bb58a98ffe4c075479ca968c383&" class="logo-box-img" alt="Ohio Logo">
+            <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477547833383977092/392206df-19ba-4c55-9336-8ce993927115.jpg?ex=69a52926&is=69a3d7a6&hm=e0e176e976739b270225554580b98b63b3053bb58a98ffe4c075479ca968c383&" class="logo-box-img">
         </div>
         <div class="brand-text">
             <h1>Ohio <span class="scripts-word">Scripts</span></h1>
@@ -144,24 +133,14 @@
         </div>
     </header>
 
-    <div class="search-container">
-        <input type="text" placeholder="Search scripts or executors...">
-    </div>
-
-    <div class="hero">
-        <div class="update-tag">V2.0 STABLE</div>
-        <h2>EXPERIENCE THE<br><span>NEXT LEVEL</span> OF<br>SCRIPTING</h2>
-    </div>
-
     <div class="section-title">Latest Releases</div>
     <div class="card-grid">
         <div class="script-card">
             <div class="card-header">
-                <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477548795813298176/noFilter_1.webp?ex=69a52a0c&is=69a3d88c&hm=ef181e03cd28c9334f4b384324a66e83b2e23b017e866c8c66072c61d2dc2b6d&" class="game-icon" alt="Tsunami">
+                <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477548795813298176/noFilter_1.webp?ex=69a52a0c&is=69a3d88c&hm=ef181e03cd28c9334f4b384324a66e83b2e23b017e866c8c66072c61d2dc2b6d&" class="game-icon">
                 <div>
                     <div class="status-tag">● Working</div>
                     <div class="card-title">Tsunami Script</div>
-                    <div class="card-desc">The ultimate escape for the trenches.</div>
                 </div>
             </div>
             <div class="script-display">loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()</div>
@@ -174,11 +153,11 @@
         
         <div class="exec-card">
             <div class="card-header">
-                <div class="game-icon" style="background: #000; display: flex; align-items: center; justify-content: center; font-size: 30px;">🔺</div>
+                <img src="[attachment_1](attachment)" class="game-icon" alt="Delta">
                 <div>
                     <div class="download-tag">Mobile / PC</div>
                     <div class="card-title">Delta Executor</div>
-                    <div class="card-desc">Most popular mobile executor (Safe).</div>
+                    <div class="card-desc">Elite Performance.</div>
                 </div>
             </div>
             <a href="https://deltaexploits.gg/" target="_blank" class="dl-btn">DOWNLOAD DELTA 🚀</a>
@@ -186,25 +165,23 @@
 
         <div class="exec-card">
             <div class="card-header">
-                <div class="game-icon" style="background: #000; display: flex; align-items: center; justify-content: center; font-size: 30px;">📦</div>
+                <img src="[attachment_0](attachment)" class="game-icon" alt="All In One">
                 <div>
                     <div class="download-tag">Multi-Device</div>
                     <div class="card-title">All-In-One Hub</div>
-                    <div class="card-desc">Collection of PC and Mobile executors.</div>
+                    <div class="card-desc">Executors for every platform.</div>
                 </div>
             </div>
-            <a href="https://wearedevs.net/exploits" target="_blank" class="dl-btn">BROWSE ALL EXECUTORS 📁</a>
+            <a href="https://wearedevs.net/exploits" target="_blank" class="dl-btn">BROWSE ALL 📁</a>
         </div>
 
     </div>
 
     <div class="help-container">
-        <div class="help-bubble">You Need Help?</div>
         <div class="bot-btn" onclick="window.open('https://discord.gg/VVzPXAG5d', '_blank')">🤖</div>
     </div>
 
     <script>
-        // Particles
         const container = document.getElementById('particle-container');
         for (let i = 0; i < 35; i++) {
             const p = document.createElement('div');
@@ -220,9 +197,6 @@
             const script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()';
             navigator.clipboard.writeText(script);
             window.open("https://www.youtube.com/@TheOhioScripts", "_blank");
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2000);
         }
     </script>
 </body>
