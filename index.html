@@ -117,10 +117,12 @@
         }
         .btn:hover { background: var(--accent-purple); transform: translateY(-3px); box-shadow: 0 8px 15px rgba(99, 102, 241, 0.2); }
 
-        /* --- FLOATING BOT --- */
+        /* --- FLOATING DISCORD BUTTON --- */
         .help-container { position: fixed; bottom: 30px; right: 30px; z-index: 100; text-align: right; }
-        .help-bubble { background: var(--accent-purple); padding: 8px 15px; border-radius: 15px 15px 5px 15px; font-size: 11px; font-weight: bold; margin-bottom: 10px; display: inline-block; }
-        .bot-btn { width: 65px; height: 65px; background: linear-gradient(135deg, var(--primary-glow), var(--accent-purple)); border-radius: 22px; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); margin-left: auto; }
+        .help-bubble { background: var(--accent-purple); padding: 8px 15px; border-radius: 15px 15px 5px 15px; font-size: 11px; font-weight: bold; margin-bottom: 10px; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .bot-btn { width: 65px; height: 65px; border-radius: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); margin-left: auto; overflow: hidden; background: #5865F2; box-shadow: 0 8px 20px rgba(88, 101, 242, 0.4); transition: 0.3s; }
+        .bot-btn:hover { transform: scale(1.1); box-shadow: 0 10px 25px rgba(88, 101, 242, 0.6); }
+        .discord-img { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
 <body>
@@ -193,7 +195,9 @@
 
     <div class="help-container">
         <div class="help-bubble">You Need Help?</div>
-        <div class="bot-btn" onclick="window.open('https://discord.gg/VVzPXAG5d', '_blank')">🤖</div>
+        <div class="bot-btn" onclick="window.open('https://discord.gg/VVzPXAG5d', '_blank')">
+            <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477552990281007145/images_3.png?ex=69a52df4&is=69a3dc74&hm=34b2c8d2f00bc57dadf5bec654ecd3b1cce38b701f2b6880835deb9f1eb1d9fd&" class="discord-img" alt="Discord">
+        </div>
     </div>
 
     <script>
