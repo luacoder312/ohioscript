@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ohio Scripts | Experience The Next Level</title>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         :root {
             --bg-dark: #050510;
@@ -16,12 +15,7 @@
             --success: #22c55e;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
         body {
             background-color: var(--bg-dark);
@@ -35,10 +29,7 @@
         /* --- ANIMATED PARTICLES --- */
         #particle-container {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
             background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
             overflow: hidden;
@@ -54,19 +45,17 @@
 
         @keyframes floatUp {
             0% { transform: translateY(110vh) scale(0); opacity: 0; }
-            20% { opacity: 0.4; }
-            80% { opacity: 0.4; }
+            50% { opacity: 0.4; }
             100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
         }
 
-        /* --- HEADER / NAV --- */
+        /* --- HEADER --- */
         header {
             padding: 40px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 20px;
-            text-align: left;
         }
 
         .logo-img {
@@ -74,270 +63,80 @@
             height: 80px;
             border-radius: 20px;
             background: linear-gradient(45deg, var(--primary-glow), var(--accent-purple));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
+            overflow: hidden;
             box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
             border: 2px solid rgba(255,255,255,0.1);
         }
 
-        .brand-text h1 {
-            font-size: 32px;
-            font-style: italic;
-            font-weight: 900;
-            line-height: 1;
-            text-transform: uppercase;
-        }
+        .logo-box-img { width: 100%; height: 100%; object-fit: cover; }
 
-        .brand-text .scripts-word {
-            color: var(--primary-glow);
-            display: block;
-        }
-
-        .brand-text p {
-            font-size: 12px;
-            letter-spacing: 3px;
-            color: var(--text-dim);
-            margin-top: 5px;
-            font-weight: bold;
-        }
+        .brand-text h1 { font-size: 32px; font-style: italic; font-weight: 900; line-height: 1; text-transform: uppercase; }
+        .brand-text .scripts-word { color: var(--primary-glow); }
+        .brand-text p { font-size: 12px; letter-spacing: 3px; color: var(--text-dim); margin-top: 5px; font-weight: bold; }
 
         /* --- SEARCH --- */
-        .search-container {
-            max-width: 500px;
-            margin: 0 auto 60px;
-            padding: 0 20px;
-            position: relative;
+        .search-container { max-width: 500px; margin: 0 auto 60px; padding: 0 20px; }
+        .search-container input { 
+            width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(99, 102, 241, 0.3); 
+            padding: 18px 25px; border-radius: 50px; color: white; outline: none; transition: 0.3s; 
         }
+        .search-container input:focus { border-color: var(--primary-glow); box-shadow: 0 0 20px rgba(99, 102, 241, 0.2); }
 
-        .search-container input {
-            width: 100%;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            padding: 18px 25px;
-            border-radius: 50px;
-            color: white;
-            font-size: 16px;
-            outline: none;
-            transition: 0.3s;
-        }
+        /* --- HERO --- */
+        .hero { text-align: center; margin-bottom: 80px; padding: 0 20px; }
+        .update-tag { background: rgba(99, 102, 241, 0.15); color: var(--primary-glow); padding: 8px 20px; border-radius: 50px; font-size: 11px; font-weight: 800; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(99, 102, 241, 0.2); }
+        .hero h2 { font-size: 42px; font-weight: 900; text-transform: uppercase; font-style: italic; line-height: 1.1; }
+        .hero h2 span { background: linear-gradient(to bottom, #a5b4fc, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p.sub { margin-top: 25px; color: var(--text-dim); font-size: 14px; }
 
-        .search-container input:focus {
-            border-color: var(--primary-glow);
-            background: rgba(255,255,255,0.06);
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
-        }
-
-        /* --- HERO TEXT --- */
-        .hero {
-            text-align: center;
-            margin-bottom: 80px;
-            padding: 0 20px;
-        }
-
-        .update-tag {
-            background: rgba(99, 102, 241, 0.15);
-            color: var(--primary-glow);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 20px;
-            border: 1px solid rgba(99, 102, 241, 0.2);
-        }
-
-        .hero h2 {
-            font-size: 42px;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-style: italic;
-            line-height: 1.1;
-        }
-
-        .hero h2 span {
-            background: linear-gradient(to bottom, #a5b4fc, #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p.sub {
-            margin-top: 25px;
-            color: var(--text-dim);
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* --- SCRIPT CARDS --- */
-        .section-title {
-            padding-left: 5%;
-            font-size: 22px;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-        }
-
-        .card-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            padding: 0 5%;
-        }
+        /* --- CARDS --- */
+        .section-title { padding-left: 5%; font-size: 22px; font-weight: 900; font-style: italic; text-transform: uppercase; margin-bottom: 30px; }
+        .card-grid { padding: 0 5%; }
 
         .script-card {
-            background: var(--bg-card);
-            border-radius: 30px;
-            padding: 30px;
-            border: 1px solid rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .script-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .game-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 18px;
-            object-fit: cover;
-        }
-
-        .status-tag {
-            font-size: 10px;
-            font-weight: 800;
-            color: var(--success);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .card-title {
-            font-size: 24px;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-        }
-
-        .card-desc {
-            color: var(--text-dim);
-            font-size: 13px;
-        }
-
-        .script-display {
-            background: rgba(0,0,0,0.3);
-            border-radius: 12px;
-            padding: 15px;
-            margin: 20px 0;
-            font-family: monospace;
-            font-size: 11px;
-            color: #818cf8;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .copy-btn {
-            width: 100%;
-            background: var(--primary-glow);
-            color: white;
-            border: none;
-            padding: 18px;
-            border-radius: 20px;
-            font-weight: 800;
-            font-size: 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            background: var(--bg-card); border-radius: 30px; padding: 30px;
+            border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(10px);
             transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
         }
 
-        .copy-btn:hover {
-            background: var(--accent-purple);
+        .card-header { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
+        
+        .game-icon { width: 70px; height: 70px; border-radius: 18px; object-fit: cover; border: 1px solid rgba(255,255,255,0.1); }
+
+        .status-tag { font-size: 10px; font-weight: 800; color: var(--success); text-transform: uppercase; display: flex; align-items: center; gap: 5px; }
+        .card-title { font-size: 24px; font-weight: 900; font-style: italic; text-transform: uppercase; }
+        .card-desc { color: var(--text-dim); font-size: 13px; }
+
+        .script-display { 
+            background: rgba(0,0,0,0.3); border-radius: 12px; padding: 15px; 
+            margin: 20px 0; font-family: monospace; font-size: 11px; color: #818cf8; 
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap; border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .copy-btn:active {
-            transform: scale(0.98);
+        .copy-btn { 
+            width: 100%; background: var(--primary-glow); color: white; border: none; 
+            padding: 18px; border-radius: 20px; font-weight: 800; cursor: pointer; transition: 0.3s; 
         }
+        .copy-btn:hover { background: var(--accent-purple); transform: translateY(-3px); }
 
-        /* --- FLOATING BOT --- */
-        .help-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            z-index: 100;
-        }
+        /* --- BOT --- */
+        .help-container { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; align-items: flex-end; z-index: 100; }
+        .help-bubble { background: var(--accent-purple); padding: 10px 20px; border-radius: 20px 20px 5px 20px; font-size: 12px; font-weight: bold; margin-bottom: 10px; }
+        .bot-btn { width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary-glow), var(--accent-purple)); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 30px; cursor: pointer; }
 
-        .help-bubble {
-            background: var(--accent-purple);
-            padding: 10px 20px;
-            border-radius: 20px 20px 5px 20px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        .bot-btn {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary-glow), var(--accent-purple));
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
-            border: 2px solid rgba(255,255,255,0.2);
-            cursor: pointer;
-        }
-
-        /* --- TOAST --- */
-        #toast {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-100px);
-            background: var(--success);
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 1000;
-        }
+        #toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px); background: var(--success); padding: 12px 30px; border-radius: 50px; font-weight: bold; transition: 0.5s; z-index: 1000; }
         #toast.show { transform: translateX(-50%) translateY(0); }
-
     </style>
 </head>
 <body>
 
     <div id="particle-container"></div>
-
     <div id="toast">SCRIPT COPIED! 📋</div>
 
     <header>
-        <div class="logo-img">💀</div>
+        <div class="logo-img">
+            <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477547833383977092/392206df-19ba-4c55-9336-8ce993927115.jpg?ex=69a52926&is=69a3d7a6&hm=e0e176e976739b270225554580b98b63b3053bb58a98ffe4c075479ca968c383&" class="logo-box-img" alt="Ohio Scripts Logo">
+        </div>
         <div class="brand-text">
             <h1>Ohio <span class="scripts-word">Scripts</span></h1>
             <p>BEST SCRIPTS ❄️</p>
@@ -350,33 +149,20 @@
 
     <div class="hero">
         <div class="update-tag">UPDATED SCRIPTS</div>
-        <h2>EXPERIENCE THE<br><span>NEXT LEVEL</span> OF<br>EXPLOITING</h2>
+        <h2>EXPERIENCE THE<br><span>NEXT LEVEL</span> OF<br>SCRIPTING</h2>
         <p class="sub">Verified, safe, and mobile-compatible scripts.<br>Powered by Ohio Scripts.</p>
     </div>
 
-    <div class="section-title">Latest Scripts</div>
+    <div class="section-title">Latest Releases</div>
 
     <div class="card-grid">
         <div class="script-card">
             <div class="card-header">
-                <img src="https://api.dicebear.com/7.x/identicon/svg?seed=tsunami" class="game-icon">
+                <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477547833383977092/392206df-19ba-4c55-9336-8ce993927115.jpg?ex=69a52926&is=69a3d7a6&hm=e0e176e976739b270225554580b98b63b3053bb58a98ffe4c075479ca968c383&" class="game-icon" alt="Tsunami">
                 <div>
                     <div class="status-tag">● Working</div>
                     <div class="card-title">Tsunami Script</div>
-                    <div class="card-desc">Escape Tsunami for Brainrots!</div>
-                </div>
-            </div>
-            <div class="script-display">loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()</div>
-            <button class="copy-btn" onclick="copyAction()">COPY SCRIPT 📋</button>
-        </div>
-
-        <div class="script-card">
-            <div class="card-header">
-                <img src="https://api.dicebear.com/7.x/identicon/svg?seed=mm2" class="game-icon">
-                <div>
-                    <div class="status-tag">● Working</div>
-                    <div class="card-title">MM2 Script</div>
-                    <div class="card-desc">Murder Mystery 2 Premium</div>
+                    <div class="card-desc">The ultimate escape for trenches.</div>
                 </div>
             </div>
             <div class="script-display">loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()</div>
@@ -390,35 +176,22 @@
     </div>
 
     <script>
-        // Particle Logic
+        // Particles
         const container = document.getElementById('particle-container');
-        const particleCount = 40;
-
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            
-            // Randomize starting position, size, and duration
-            const size = Math.random() * 4 + 1;
-            const posX = Math.random() * 100;
-            const duration = Math.random() * 5 + 5;
-            const delay = Math.random() * 10;
-
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            particle.style.left = `${posX}vw`;
-            particle.style.animationDuration = `${duration}s`;
-            particle.style.animationDelay = `-${delay}s`; // Start mid-animation
-
-            container.appendChild(particle);
+        for (let i = 0; i < 40; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.width = p.style.height = (Math.random() * 4 + 1) * 0.8 + 'px'; // Slimmer particles
+            p.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            p.style.animationDelay = `-${Math.random() * 10}s`;
+            container.appendChild(p);
         }
 
         function copyAction() {
             const script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()';
             navigator.clipboard.writeText(script);
-            
             window.open("https://www.youtube.com/@TheOhioScripts", "_blank");
-
             const toast = document.getElementById('toast');
             toast.classList.add('show');
             setTimeout(() => toast.classList.remove('show'), 2000);
