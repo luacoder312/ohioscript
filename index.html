@@ -93,7 +93,7 @@
         }
 
         .card-header { display: flex; align-items: center; gap: 20px; margin-bottom: 15px; }
-        .game-icon { width: 70px; height: 70px; border-radius: 18px; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); background: #000; }
+        .game-icon { width: 70px; height: 70px; border-radius: 18px; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); background: #000; box-shadow: 0 0 15px rgba(99, 102, 241, 0.2); }
 
         .status-tag { font-size: 10px; font-weight: 800; color: var(--success); text-transform: uppercase; display: flex; align-items: center; gap: 5px; }
         .download-tag { font-size: 10px; font-weight: 800; color: var(--warning); text-transform: uppercase; }
@@ -112,11 +112,12 @@
             padding: 16px; border-radius: 15px; font-weight: 800; cursor: pointer; transition: 0.3s; 
             text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px;
         }
-        .dl-btn:hover { background: var(--accent-purple); transform: translateY(-3px); }
+        .dl-btn:hover, .copy-btn:hover { background: var(--accent-purple); transform: translateY(-3px); }
 
         /* --- BOT --- */
         .help-container { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; align-items: flex-end; z-index: 100; }
-        .bot-btn { width: 65px; height: 65px; background: linear-gradient(135deg, var(--primary-glow), var(--accent-purple)); border-radius: 22px; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; }
+        .bot-btn { width: 65px; height: 65px; background: linear-gradient(135deg, var(--primary-glow), var(--accent-purple)); border-radius: 22px; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); }
+
     </style>
 </head>
 <body>
@@ -153,7 +154,7 @@
         
         <div class="exec-card">
             <div class="card-header">
-                <img src="[attachment_1](attachment)" class="game-icon" alt="Delta">
+                <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477551259245609060/images_3.jpg?ex=69a52c57&is=69a3dad7&hm=63d72652acb302802e62a40e114ba083ceb9f51128cbf327f9b738c217d9a07b&" class="game-icon" alt="Delta Logo">
                 <div>
                     <div class="download-tag">Mobile / PC</div>
                     <div class="card-title">Delta Executor</div>
@@ -165,7 +166,7 @@
 
         <div class="exec-card">
             <div class="card-header">
-                <img src="[attachment_0](attachment)" class="game-icon" alt="All In One">
+                <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477551231072337971/unnamed.png?ex=69a52c51&is=69a3dad1&hm=25003e4305d0708a07ee4ead1d2798f82622c326b5ede32ca6c0404479f861eb&" class="game-icon" alt="All-In-One Logo">
                 <div>
                     <div class="download-tag">Multi-Device</div>
                     <div class="card-title">All-In-One Hub</div>
