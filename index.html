@@ -1,250 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ohio Scripts | Premium Hub</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohio Scripts | Experience The Next Level</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --bg-dark: #050510;
+            --bg-card: rgba(18, 18, 35, 0.7);
+            --primary-glow: #6366f1;
+            --accent-purple: #8b5cf6;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+            --success: #22c55e;
+        }
 
-<style>
-:root {
-  --primary: #ff6600; /* Ohio Orange */
-  --accent: #ffae00;
-  --yt-red: #ff0000;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
 
-*{ box-sizing:border-box; margin:0; padding:0; -webkit-user-select:none; user-select:none; }
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                url('https://www.transparenttextures.com/patterns/stardust.png');
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-bottom: 100px;
+        }
 
-body { 
-  font-family: 'Inter', 'Segoe UI', sans-serif; 
-  height: 100vh; 
-  overflow: hidden; 
-  color: #fff; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #000;
-}
+        /* --- HEADER / NAV --- */
+        header {
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            text-align: left;
+        }
 
-/* BACKGROUND VIDEO */
-.video-wrapper {
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  z-index: -2;
-}
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--accent-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
 
-.video-wrapper video {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: brightness(0.4) contrast(1.1);
-}
+        .brand-text h1 {
+            font-size: 32px;
+            font-style: italic;
+            font-weight: 900;
+            line-height: 1;
+            text-transform: uppercase;
+        }
 
-.video-overlay {
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(circle, transparent 20%, rgba(10,5,0,0.8) 100%);
-  z-index: -1;
-}
+        .brand-text .scripts-word {
+            color: var(--primary-glow);
+            display: block;
+        }
 
-/* MAIN UI CONTAINER */
-.container { 
-  max-width: 420px; width: 92%;
-  background: rgba(15, 10, 5, 0.4);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 28px; 
-  padding: 35px; 
-  border: 1px solid rgba(255, 102, 0, 0.15);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.7);
-  text-align: center;
-  animation: entrance 0.8s ease-out;
-}
+        .brand-text p {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: var(--text-dim);
+            margin-top: 5px;
+            font-weight: bold;
+        }
 
-@keyframes entrance {
-  from { opacity: 0; transform: scale(0.95) translateY(10px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
-}
+        /* --- SEARCH --- */
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+            position: relative;
+        }
 
-h1 { font-size: 34px; font-weight: 800; letter-spacing: -1px; margin-bottom: 5px; }
-.subtitle { opacity: 0.5; font-size: 10px; letter-spacing: 4px; margin-bottom: 20px; text-transform: uppercase; }
+        .search-container input {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 18px 25px;
+            border-radius: 50px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
 
-.status-pill {
-  background: rgba(255, 102, 0, 0.1);
-  color: #ff6600;
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-size: 11px;
-  font-weight: 800;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 25px;
-  border: 1px solid rgba(255, 102, 0, 0.2);
-}
+        .search-container input:focus {
+            border-color: var(--primary-glow);
+            background: rgba(255,255,255,0.06);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+        }
 
-.script-box {
-  position: relative;
-  background: rgba(0,0,0,0.5);
-  padding: 18px;
-  border-radius: 18px;
-  margin-bottom: 15px;
-  border: 1px solid rgba(255,255,255,0.05);
-}
+        /* --- HERO TEXT --- */
+        .hero {
+            text-align: center;
+            margin-bottom: 80px;
+            padding: 0 20px;
+        }
 
-pre { 
-  font-size: 11px; 
-  color: var(--accent);
-  white-space: pre-wrap; 
-  word-break: break-all;
-  height: 60px;
-  overflow: hidden;
-}
+        .update-tag {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--primary-glow);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
 
-.locked { filter: blur(12px); }
+        .hero h2 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-style: italic;
+            line-height: 1.1;
+        }
 
-/* BUTTON STYLES */
-button, .discord-btn {
-  width: 100%;
-  padding: 16px;
-  border-radius: 14px;
-  font-weight: 800;
-  font-size: 14px;
-  cursor: pointer;
-  border: none;
-  transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  margin-top: 10px;
-}
+        .hero h2 span {
+            background: linear-gradient(to bottom, #a5b4fc, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-#unlockBtn { background: var(--yt-red); color: #fff; }
-#unlockBtn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,0,0,0.3); }
+        .hero p.sub {
+            margin-top: 25px;
+            color: var(--text-dim);
+            font-size: 14px;
+            line-height: 1.6;
+        }
 
-#copyBtn { background: var(--primary); color: #fff; }
-#copyBtn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 102, 0, 0.3); }
+        /* --- SCRIPT CARDS --- */
+        .section-title {
+            padding-left: 5%;
+            font-size: 22px;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
 
-.discord-btn { background: #5865F2; color: #fff; }
-.discord-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(88, 101, 242, 0.3); }
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding: 0 5%;
+        }
 
-.features-list {
-  text-align: left;
-  margin-top: 25px;
-  background: rgba(255,255,255,0.03);
-  padding: 15px;
-  border-radius: 15px;
-}
+        .script-card {
+            background: var(--bg-card);
+            border-radius: 30px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
 
-.features-list div { font-size: 12px; opacity: 0.7; line-height: 1.8; }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
 
-.counter-text { font-size: 11px; opacity: 0.4; margin-top: 20px; font-weight: bold; }
+        .game-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            object-fit: cover;
+        }
 
-/* TOAST */
-.toast {
-  position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
-  background: #fff; color: #000; padding: 12px 30px; border-radius: 50px;
-  font-weight: 800; transition: 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28); opacity: 0; z-index: 10;
-}
-.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-</style>
+        .status-tag {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+        }
+
+        .card-desc {
+            color: var(--text-dim);
+            font-size: 13px;
+        }
+
+        .script-display {
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 11px;
+            color: #818cf8;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .copy-btn {
+            width: 100%;
+            background: var(--primary-glow);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* --- FLOATING BOT --- */
+        .help-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            z-index: 100;
+        }
+
+        .help-bubble {
+            background: var(--accent-purple);
+            padding: 10px 20px;
+            border-radius: 20px 20px 5px 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .bot-btn {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-glow), var(--accent-purple));
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+            border: 2px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+        }
+
+        /* --- TOAST --- */
+        #toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: var(--success);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+        }
+        #toast.show { transform: translateX(-50%) translateY(0); }
+
+    </style>
 </head>
 <body>
 
-<div class="video-wrapper">
-  <video autoplay muted loop playsinline>
-    <source src="https://i.imgur.com/39wFv7W.mp4" type="video/mp4">
-  </video>
-</div>
-<div class="video-overlay"></div>
+    <div id="toast">SCRIPT COPIED! 📋</div>
 
-<div class="container">
-  <h1>Ohio Scripts</h1>
-  <div class="subtitle">Premium Scripting</div>
+    <header>
+        <div class="logo-img">💀</div>
+        <div class="brand-text">
+            <h1>Ohio <span class="scripts-word">Scripts</span></h1>
+            <p>BEST SCRIPTS ❄️</p>
+        </div>
+    </header>
 
-  <div class="status-pill">
-    <span style="color:#ff6600">●</span> <span id="users">182</span> ACTIVE NOW
-  </div>
-
-  <div class="script-box">
-    <pre id="scriptBox" class="locked">loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()</pre>
-    <div id="lockIcon" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:24px;">🔒</div>
-  </div>
-
-  <button id="unlockBtn" onclick="subscribeUnlock()">▶ SUBSCRIBE TO UNLOCK</button>
-  
-  <button id="copyBtn" onclick="copyScript()" style="display:none;">📋 COPY TO CLIPBOARD</button>
-  
-  <a href="https://discord.gg/VVzPXAG5d" target="_blank" id="discordBtn" class="discord-btn" style="display:none;">
-    <span style="margin-right:10px;">👾</span> JOIN DISCORD
-  </a>
-
-  <div class="features-list">
-    <div style="color:var(--primary); font-weight:800; margin-bottom:5px;">HUB FEATURES</div>
-    <div>
-      • Brainrot Duper (V2)<br>
-      • Instant Token Multiplier<br>
-      • Stealth Trade Scam V1
+    <div class="search-container">
+        <input type="text" placeholder="Search scripts...">
     </div>
-  </div>
 
-  <div class="counter-text">
-    GLOBAL COPIES: <span id="copies">5,402</span>
-  </div>
-</div>
+    <div class="hero">
+        <div class="update-tag">UPDATED SCRIPTS</div>
+        <h2>EXPERIENCE THE<br><span>NEXT LEVEL</span> OF<br>EXPLOITING</h2>
+        <p class="sub">Verified, safe, and mobile-compatible scripts.<br>Powered by Ohio Scripts.</p>
+    </div>
 
-<div id="toast" class="toast">SCRIPT COPIED! 🚀</div>
+    <div class="section-title">Latest Scripts</div>
 
-<script>
-const scriptBox = document.getElementById("scriptBox");
-const lockIcon = document.getElementById("lockIcon");
-const unlockBtn = document.getElementById("unlockBtn");
-const copyBtn = document.getElementById("copyBtn");
-const discordBtn = document.getElementById("discordBtn");
-const copySpan = document.getElementById("copies");
+    <div class="card-grid">
+        <div class="script-card">
+            <div class="card-header">
+                <img src="https://api.dicebear.com/7.x/identicon/svg?seed=tsunami" class="game-icon">
+                <div>
+                    <div class="status-tag">● Working</div>
+                    <div class="card-title">Tsunami Script</div>
+                    <div class="card-desc">Escape Tsunami for Brainrots!</div>
+                </div>
+            </div>
+            <div class="script-display">loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()</div>
+            <button class="copy-btn" onclick="copyAction()">COPY SCRIPT 📋</button>
+        </div>
 
-let currentCopies = parseInt(localStorage.getItem("ohioTotalCopies")) || 5402;
-copySpan.innerText = currentCopies.toLocaleString();
+        <div class="script-card">
+            <div class="card-header">
+                <img src="https://api.dicebear.com/7.x/identicon/svg?seed=mm2" class="game-icon">
+                <div>
+                    <div class="status-tag">● Working</div>
+                    <div class="card-title">MM2 Script</div>
+                    <div class="card-desc">Murder Mystery 2 Premium</div>
+                </div>
+            </div>
+            <div class="script-display">loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()</div>
+            <button class="copy-btn" onclick="copyAction()">COPY SCRIPT 📋</button>
+        </div>
+    </div>
 
-if(localStorage.getItem("ohioUnlocked") === "true") { 
-  unlockContent(); 
-}
+    <div class="help-container">
+        <div class="help-bubble">You Need Help?</div>
+        <div class="bot-btn" onclick="window.open('https://discord.gg/VVzPXAG5d', '_blank')">🤖</div>
+    </div>
 
-function subscribeUnlock() {
-  localStorage.setItem("ohioUnlocked", "true");
-  window.open("https://www.youtube.com/@TheOhioScripts", "_blank");
-}
+    <script>
+        function copyAction() {
+            const script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()';
+            navigator.clipboard.writeText(script);
+            
+            // Link to your YT before copying (Optional, but matches your request for sub-to-unlock behavior)
+            window.open("https://www.youtube.com/@TheOhioScripts", "_blank");
 
-function unlockContent() {
-  scriptBox.classList.remove("locked");
-  lockIcon.style.display = "none";
-  unlockBtn.style.display = "none";
-  copyBtn.style.display = "flex";
-  discordBtn.style.display = "flex";
-}
-
-window.addEventListener("focus", () => {
-  if(localStorage.getItem("ohioUnlocked") === "true") { 
-    unlockContent(); 
-  }
-});
-
-function copyScript() {
-  navigator.clipboard.writeText(scriptBox.innerText);
-  currentCopies++;
-  copySpan.innerText = currentCopies.toLocaleString();
-  localStorage.setItem("ohioTotalCopies", currentCopies);
-  
-  const toast = document.getElementById("toast");
-  toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 2500);
-}
-
-let users = 182;
-setInterval(() => {
-  users += Math.floor(Math.random() * 5) - 2;
-  document.getElementById("users").innerText = Math.max(150, users);
-}, 3000);
-</script>
-
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+    </script>
 </body>
 </html>
