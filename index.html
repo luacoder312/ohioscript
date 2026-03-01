@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ohio Scripts | Unleash the Chaos</title>
+    <title>Ohio Scripts | Premium Hub</title>
     <style>
         :root {
-            --bg-dark: #02020a;
-            --bg-card: rgba(15, 15, 30, 0.7);
-            --primary-glow: #ff6600; /* Ohio Orange */
-            --accent-purple: #9d00ff;
+            --bg-dark: #050510;
+            --bg-card: rgba(18, 18, 35, 0.7);
+            --primary: #6366f1; /* Back to the clean Blue/Purple from your screenshot */
+            --accent: #8b5cf6;
             --text-main: #ffffff;
             --text-dim: #94a3b8;
             --success: #22c55e;
@@ -26,27 +26,26 @@
             position: relative;
         }
 
-        /* --- ANIMATED BACKGROUND PARTICLES --- */
-        .particles {
+        /* --- ANIMATED PARTICLES --- */
+        #bg-canvas {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            overflow: hidden;
-            background: radial-gradient(circle at 50% 50%, #0a0a20 0%, #02020a 100%);
+            background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.15) 0%, #050510 100%);
         }
 
         .particle {
             position: absolute;
-            background: white;
+            background: #fff;
             border-radius: 50%;
-            opacity: 0.3;
-            animation: float linear infinite;
+            opacity: 0.2;
+            animation: moveUp linear infinite;
         }
 
-        @keyframes float {
-            0% { transform: translateY(100vh) scale(0); opacity: 0; }
-            50% { opacity: 0.5; }
-            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        @keyframes moveUp {
+            0% { transform: translateY(110vh); opacity: 0; }
+            50% { opacity: 0.3; }
+            100% { transform: translateY(-10vh); opacity: 0; }
         }
 
         /* --- HEADER --- */
@@ -58,65 +57,69 @@
             gap: 20px;
         }
 
-        .logo-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 22px;
-            overflow: hidden; /* Clips the image to the border radius */
-            border: 2px solid var(--primary-glow);
-            box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+        .logo-box {
+            width: 75px; height: 75px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .logo-img img { width: 100%; height: 100%; object-fit: cover; }
+        .logo-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        .brand-text h1 { font-size: 32px; font-style: italic; font-weight: 900; text-transform: uppercase; line-height: 1; }
-        .brand-text .scripts-word { color: var(--primary-glow); }
+        .brand-text h1 { font-size: 30px; font-weight: 900; text-transform: uppercase; font-style: italic; line-height: 0.9; }
+        .brand-text span { color: var(--primary); }
         .brand-text p { font-size: 11px; letter-spacing: 3px; color: var(--text-dim); margin-top: 5px; font-weight: bold; }
-
-        /* --- HERO --- */
-        .hero { text-align: center; margin: 40px 0 60px; padding: 0 20px; }
-        .update-tag { background: rgba(255, 102, 0, 0.1); color: var(--primary-glow); padding: 8px 20px; border-radius: 50px; font-size: 11px; font-weight: 800; border: 1px solid rgba(255, 102, 0, 0.2); display: inline-block; margin-bottom: 20px; }
-        
-        /* CUSTOM QUOTE */
-        .hero h2 { font-size: 44px; font-weight: 900; text-transform: uppercase; font-style: italic; line-height: 1; }
-        .hero h2 span { background: linear-gradient(to bottom, #ff9900, #ff4400); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p.sub { margin-top: 20px; color: var(--text-dim); font-size: 14px; opacity: 0.8; }
 
         /* --- SEARCH --- */
         .search-container { max-width: 500px; margin: 0 auto 50px; padding: 0 20px; }
-        .search-container input { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,102,0,0.2); padding: 18px 25px; border-radius: 15px; color: white; outline: none; transition: 0.3s; }
-        .search-container input:focus { border-color: var(--primary-glow); box-shadow: 0 0 20px rgba(255, 102, 0, 0.15); }
+        .search-container input { 
+            width: 100%; background: rgba(255,255,255,0.03); 
+            border: 1px solid rgba(99, 102, 241, 0.2); padding: 18px 25px; 
+            border-radius: 50px; color: white; outline: none; transition: 0.3s; 
+        }
+        .search-container input:focus { border-color: var(--primary); box-shadow: 0 0 20px rgba(99, 102, 241, 0.2); }
+
+        /* --- HERO --- */
+        .hero { text-align: center; margin-bottom: 60px; padding: 0 20px; }
+        .tag { background: rgba(99, 102, 241, 0.1); color: var(--primary); padding: 7px 18px; border-radius: 50px; font-size: 10px; font-weight: 800; display: inline-block; margin-bottom: 15px; border: 1px solid rgba(99, 102, 241, 0.2); }
+        
+        /* NEW SCRIPTING QUOTE */
+        .hero h2 { font-size: 38px; font-weight: 900; text-transform: uppercase; font-style: italic; line-height: 1.1; }
+        .hero h2 span { background: linear-gradient(to bottom, #a5b4fc, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p.sub { margin-top: 20px; color: var(--text-dim); font-size: 14px; }
 
         /* --- CARDS --- */
-        .section-title { padding-left: 5%; font-size: 20px; font-weight: 900; font-style: italic; text-transform: uppercase; margin-bottom: 25px; }
-        .card-grid { display: grid; gap: 20px; padding: 0 5%; }
+        .section-label { padding-left: 6%; font-size: 18px; font-weight: 900; font-style: italic; text-transform: uppercase; margin-bottom: 25px; }
+        .card-list { display: grid; gap: 20px; padding: 0 6%; }
 
-        .script-card {
-            background: var(--bg-card);
-            border-radius: 25px;
-            padding: 25px;
-            border: 1px solid rgba(255,255,255,0.05);
-            backdrop-filter: blur(12px);
-            transition: 0.3s;
+        .card {
+            background: var(--bg-card); border-radius: 25px; padding: 25px;
+            border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(15px);
         }
 
-        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
-        
-        /* IMAGE BOX FOR SCRIPTS */
-        .game-thumb { width: 65px; height: 65px; border-radius: 15px; object-fit: cover; border: 1px solid rgba(255,255,255,0.1); }
+        .card-top { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .thumb { width: 60px; height: 60px; border-radius: 15px; object-fit: cover; }
 
-        .status-tag { font-size: 10px; font-weight: 800; color: var(--success); text-transform: uppercase; display: flex; align-items: center; gap: 5px; }
-        .card-title { font-size: 22px; font-weight: 900; font-style: italic; text-transform: uppercase; }
+        .status { font-size: 10px; font-weight: 800; color: var(--success); text-transform: uppercase; display: flex; align-items: center; gap: 5px; }
+        .title { font-size: 20px; font-weight: 900; font-style: italic; text-transform: uppercase; }
 
-        .script-display { background: rgba(0,0,0,0.4); border-radius: 10px; padding: 12px; margin: 15px 0; font-family: monospace; font-size: 10px; color: #ffa500; border: 1px solid rgba(255,255,255,0.03); overflow: hidden; }
+        .code-box { 
+            background: rgba(0,0,0,0.4); border-radius: 12px; padding: 12px; 
+            margin: 15px 0; font-family: monospace; font-size: 10px; color: #818cf8; 
+            border: 1px solid rgba(255,255,255,0.03); overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+        }
 
-        .copy-btn { width: 100%; background: linear-gradient(45deg, #ff6600, #ff4400); color: white; border: none; padding: 16px; border-radius: 15px; font-weight: 800; cursor: pointer; transition: 0.3s; }
-        .copy-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3); }
+        .btn { 
+            width: 100%; background: var(--primary); color: white; border: none; 
+            padding: 16px; border-radius: 15px; font-weight: 800; cursor: pointer; transition: 0.3s; 
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3); }
 
-        /* --- BOT --- */
-        .help-container { position: fixed; bottom: 30px; right: 30px; z-index: 100; text-align: right; }
-        .help-bubble { background: #8b5cf6; padding: 8px 15px; border-radius: 15px 15px 0 15px; font-size: 12px; font-weight: bold; margin-bottom: 10px; display: inline-block; }
-        .bot-btn { width: 60px; height: 60px; background: #6366f1; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3); }
+        /* --- HELP BOT --- */
+        .bot-wrap { position: fixed; bottom: 25px; right: 25px; z-index: 100; text-align: right; }
+        .bubble { background: var(--accent); padding: 8px 15px; border-radius: 15px 15px 5px 15px; font-size: 11px; font-weight: bold; margin-bottom: 8px; display: inline-block; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .bot { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 26px; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
         #toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px); background: var(--success); padding: 12px 30px; border-radius: 50px; font-weight: bold; transition: 0.4s; z-index: 1000; }
         #toast.show { transform: translateX(-50%) translateY(0); }
@@ -124,67 +127,66 @@
 </head>
 <body>
 
-    <div id="toast">SCRIPT COPIED TO CLIPBOARD! 💀</div>
-
-    <div class="particles" id="particleContainer"></div>
+    <div id="toast">COPIED SUCCESSFULLY! 📋</div>
+    <div id="bg-canvas"></div>
 
     <header>
-        <div class="logo-img">
-            <img src="https://i.imgur.com/your-main-logo.jpg" alt="💀">
+        <div class="logo-box">
+            <img src="https://via.placeholder.com/150" alt="Ohio Logo">
         </div>
         <div class="brand-text">
-            <h1>Ohio <span class="scripts-word">Scripts</span></h1>
-            <p>ONLY IN OHIO ❄️</p>
+            <h1>Ohio <span>Scripts</span></h1>
+            <p>BEST SCRIPTS ❄️</p>
         </div>
     </header>
 
     <div class="search-container">
-        <input type="text" placeholder="Search for chaos...">
+        <input type="text" placeholder="Search scripts...">
     </div>
 
     <div class="hero">
-        <div class="update-tag">V2.0 LIVE</div>
-        <h2>DOMINATE THE<br><span>OHIO REALM</span> WITH<br>ELITE EXPLOITS</h2>
-        <p class="sub">Fast. Undetected. Pure Chaos.<br>The only script hub built for the trenches.</p>
+        <div class="tag">UPDATED SCRIPTS</div>
+        <h2>EXPERIENCE THE<br><span>NEXT LEVEL</span> OF<br>SCRIPTING</h2>
+        <p class="sub">Verified, safe, and mobile-compatible scripts.<br>Powered by Ohio Scripts.</p>
     </div>
 
-    <div class="section-title">Trending Now</div>
+    <div class="section-label">Latest Releases</div>
 
-    <div class="card-grid">
-        <div class="script-card">
-            <div class="card-header">
-                <img src="https://i.imgur.com/tsunami-thumb.jpg" class="game-thumb" alt="🌊">
+    <div class="card-list">
+        <div class="card">
+            <div class="card-top">
+                <img src="https://via.placeholder.com/100" class="thumb" alt="Game">
                 <div>
-                    <div class="status-tag">● Working</div>
-                    <div class="card-title">Tsunami Escape</div>
+                    <div class="status">● Working</div>
+                    <div class="title">Tsunami Script</div>
                 </div>
             </div>
-            <div class="script-display">loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()</div>
-            <button class="copy-btn" onclick="copyAction()">COPY SCRIPT 📋</button>
+            <div class="code-box">loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()</div>
+            <button class="btn" onclick="copy()">COPY SCRIPT 📋</button>
         </div>
     </div>
 
-    <div class="help-container">
-        <div class="help-bubble">Lost in Ohio?</div>
-        <div class="bot-btn" onclick="window.open('https://discord.gg/VVzPXAG5d', '_blank')">🤖</div>
+    <div class="bot-wrap">
+        <div class="bubble">You Need Help?</div>
+        <div class="bot" onclick="window.open('https://discord.gg/VVzPXAG5d', '_blank')">🤖</div>
     </div>
 
     <script>
-        // --- Particle Generator ---
-        const container = document.getElementById('particleContainer');
-        for (let i = 0; i < 50; i++) {
+        // Particle System
+        const bg = document.getElementById('bg-canvas');
+        for (let i = 0; i < 40; i++) {
             const p = document.createElement('div');
             p.className = 'particle';
             p.style.left = Math.random() * 100 + 'vw';
             p.style.width = p.style.height = Math.random() * 3 + 'px';
-            p.style.animationDuration = (Math.random() * 5 + 3) + 's';
+            p.style.animationDuration = (Math.random() * 8 + 4) + 's';
             p.style.animationDelay = Math.random() * 5 + 's';
-            container.appendChild(p);
+            bg.appendChild(p);
         }
 
-        function copyAction() {
-            const script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()';
-            navigator.clipboard.writeText(script);
+        function copy() {
+            const txt = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()';
+            navigator.clipboard.writeText(txt);
             window.open("https://www.youtube.com/@TheOhioScripts", "_blank");
             const toast = document.getElementById('toast');
             toast.classList.add('show');
