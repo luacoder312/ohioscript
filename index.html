@@ -10,6 +10,7 @@
             --bg-card: rgba(18, 18, 35, 0.7);
             --primary-glow: #6366f1;
             --accent-purple: #8b5cf6;
+            --yt-red: #ff0000;
             --text-main: #ffffff;
             --text-dim: #94a3b8;
             --success: #22c55e;
@@ -52,16 +53,18 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%) translateY(-100px);
-            background: rgba(99, 102, 241, 0.2);
+            background: rgba(18, 18, 35, 0.8);
             backdrop-filter: blur(15px);
             border: 1px solid var(--primary-glow);
             padding: 12px 30px;
             border-radius: 50px;
-            font-weight: bold;
+            font-weight: 800;
             color: white;
             z-index: 9999;
             transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         #notification.show { transform: translateX(-50%) translateY(0); }
 
@@ -94,7 +97,6 @@
             padding: 18px 25px; border-radius: 50px; color: white; outline: none; transition: 0.3s;
             font-size: 16px;
         }
-        .search-container input:focus { border-color: var(--primary-glow); box-shadow: 0 0 20px rgba(99, 102, 241, 0.2); }
 
         /* --- HERO SECTION --- */
         .hero { text-align: center; margin-bottom: 60px; padding: 0 20px; }
@@ -117,9 +119,7 @@
         .game-icon { width: 70px; height: 70px; border-radius: 18px; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); background: #000; }
         
         .status-tag { font-size: 10px; font-weight: 800; color: var(--success); text-transform: uppercase; margin-bottom: 4px; display: block; }
-        .download-tag { font-size: 10px; font-weight: 800; color: var(--warning); text-transform: uppercase; margin-bottom: 4px; display: block; }
         .card-title { font-size: 22px; font-weight: 900; font-style: italic; text-transform: uppercase; }
-        .card-desc { color: var(--text-dim); font-size: 13px; margin-top: 4px; }
 
         .script-display { 
             background: rgba(0,0,0,0.3); border-radius: 12px; padding: 15px; 
@@ -133,14 +133,18 @@
             text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px;
             text-transform: uppercase;
         }
-        .btn:hover { background: var(--accent-purple); transform: translateY(-3px); box-shadow: 0 8px 15px rgba(99, 102, 241, 0.2); }
-        .btn.locked { background: #334155; }
-        .btn.locked:hover { background: #ef4444; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.3); }
+        
+        /* RED SUB BUTTON */
+        .btn.sub-lock { 
+            background: var(--yt-red); 
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+        }
+        .btn.sub-lock:hover { background: #cc0000; box-shadow: 0 0 30px rgba(255, 0, 0, 0.4); }
 
         /* --- FLOATING DISCORD BUTTON --- */
         .help-container { position: fixed; bottom: 30px; right: 30px; z-index: 100; text-align: right; }
-        .help-bubble { background: var(--accent-purple); padding: 8px 15px; border-radius: 15px 15px 5px 15px; font-size: 11px; font-weight: bold; margin-bottom: 10px; display: inline-block; }
-        .bot-btn { width: 65px; height: 65px; border-radius: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); margin-left: auto; overflow: hidden; background: #5865F2; box-shadow: 0 8px 20px rgba(88, 101, 242, 0.4); }
+        .bot-btn { width: 65px; height: 65px; border-radius: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); margin-left: auto; overflow: hidden; background: #5865F2; }
         .discord-img { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
@@ -177,12 +181,11 @@
                 <div>
                     <span class="status-tag">● Working</span>
                     <div class="card-title">Tsunami Script</div>
-                    <p class="card-desc">Escape Tsunami For Brainrots!</p>
                 </div>
             </div>
             <div class="script-display">loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()</div>
             
-            <button id="main-btn" class="btn locked" onclick="handleScriptAction()">Unlock Script 🔒</button>
+            <button id="main-btn" class="btn sub-lock" onclick="handleScriptAction()">Sub To Unlock! 🔒</button>
         </div>
     </div>
 
@@ -192,36 +195,21 @@
             <div class="card-header">
                 <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477551259245609060/images_3.jpg?ex=69a52c57&is=69a3dad7&hm=63d72652acb302802e62a40e114ba083ceb9f51128cbf327f9b738c217d9a07b&" class="game-icon">
                 <div>
-                    <span class="download-tag">Mobile / PC</span>
                     <div class="card-title">Delta Executor</div>
-                    <p class="card-desc">Elite Performance.</p>
                 </div>
             </div>
             <a href="https://deltaexploits.gg/" target="_blank" class="btn">DOWNLOAD 🚀</a>
         </div>
-
-        <div class="exec-card">
-            <div class="card-header">
-                <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477551231072337971/unnamed.png?ex=69a52c51&is=69a3dad1&hm=25003e4305d0708a07ee4ead1d2798f82622c326b5ede32ca6c0404479f861eb&" class="game-icon">
-                <div>
-                    <span class="download-tag">Multi-Device</span>
-                    <div class="card-title">All-In-One Hub</div>
-                    <p class="card-desc">Executors for every platform.</p>
-                </div>
-            </div>
-            <a href="https://wearedevs.net/exploits" target="_blank" class="btn">DOWNLOAD 📁</a>
-        </div>
     </div>
 
     <div class="help-container">
-        <div class="help-bubble">You Need Help?</div>
         <div class="bot-btn" onclick="window.open('https://discord.gg/VVzPXAG5d', '_blank')">
             <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477552990281007145/images_3.png?ex=69a52df4&is=69a3dc74&hm=34b2c8d2f00bc57dadf5bec654ecd3b1cce38b701f2b6880835deb9f1eb1d9fd&" class="discord-img">
         </div>
     </div>
 
     <script>
-        // Particle Background Logic
+        // Particles
         const container = document.getElementById('particle-container');
         for (let i = 0; i < 35; i++) {
             const p = document.createElement('div');
@@ -233,7 +221,7 @@
             container.appendChild(p);
         }
 
-        // Sub to Unlock Logic
+        // Logic
         let isUnlocked = false;
         const ytLink = "https://www.youtube.com/@ree_vex";
         const scriptContent = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()';
@@ -242,14 +230,12 @@
             const btn = document.getElementById('main-btn');
             
             if (!isUnlocked) {
-                // Phase 1: Unlock
                 window.open(ytLink, '_blank');
                 isUnlocked = true;
-                btn.classList.remove('locked');
+                btn.classList.remove('sub-lock');
                 btn.innerHTML = "Copy Script 📋";
                 showToast("UNLOCKED! NOW YOU CAN COPY");
             } else {
-                // Phase 2: Copy
                 navigator.clipboard.writeText(scriptContent);
                 showToast("SCRIPT COPIED TO CLIPBOARD!");
             }
