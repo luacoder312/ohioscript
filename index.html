@@ -140,9 +140,10 @@
         .btn.sub-lock { background: var(--yt-red); box-shadow: 0 0 20px rgba(255, 0, 0, 0.2); }
         .btn.sub-lock:hover { background: #cc0000; }
 
-        /* --- DISCORD --- */
-        .help-container { position: fixed; bottom: 30px; right: 30px; z-index: 100; text-align: right; }
-        .bot-btn { width: 65px; height: 65px; border-radius: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); margin-left: auto; overflow: hidden; background: #5865F2; }
+        /* --- DISCORD ICON ONLY --- */
+        .help-container { position: fixed; bottom: 30px; right: 30px; z-index: 100; }
+        .bot-btn { width: 65px; height: 65px; border-radius: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); overflow: hidden; background: #5865F2; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .bot-btn:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 10px 25px rgba(88, 101, 242, 0.5); }
         .discord-img { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
@@ -221,6 +222,7 @@
     </div>
 
     <script>
+        // Particle System
         const container = document.getElementById('particle-container');
         for (let i = 0; i < 35; i++) {
             const p = document.createElement('div');
@@ -232,22 +234,35 @@
             container.appendChild(p);
         }
 
-        let isUnlocked = false;
+        // Logic variables
         const ytLink = "https://www.youtube.com/@ree_vex";
         const scriptContent = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()';
+        const mainBtn = document.getElementById('main-btn');
+
+        // CHECK IF ALREADY UNLOCKED (On Page Load)
+        window.onload = function() {
+            if (localStorage.getItem('reevex_unlocked') === 'true') {
+                unlockButton();
+            }
+        };
 
         function handleScriptAction() {
-            const btn = document.getElementById('main-btn');
-            if (!isUnlocked) {
-                window.open(ytLink, '_blank');
-                isUnlocked = true;
-                btn.classList.remove('sub-lock');
-                btn.innerHTML = "Copy Script 📋";
-                showToast("UNLOCKED! NOW YOU CAN COPY");
-            } else {
+            // If the local storage says it's unlocked, just copy the script
+            if (localStorage.getItem('reevex_unlocked') === 'true') {
                 navigator.clipboard.writeText(scriptContent);
                 showToast("SCRIPT COPIED TO CLIPBOARD!");
+            } else {
+                // Otherwise, open YouTube and unlock it
+                window.open(ytLink, '_blank');
+                localStorage.setItem('reevex_unlocked', 'true');
+                unlockButton();
+                showToast("UNLOCKED! NOW YOU CAN COPY");
             }
+        }
+
+        function unlockButton() {
+            mainBtn.classList.remove('sub-lock');
+            mainBtn.innerHTML = "Copy Script 📋";
         }
 
         function showToast(msg) {
