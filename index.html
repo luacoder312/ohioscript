@@ -24,16 +24,13 @@
             min-height: 100vh;
             overflow-x: hidden;
             padding-bottom: 100px;
-            position: relative;
         }
 
-        /* --- ANIMATED PARTICLES --- */
         #particle-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
             background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
-            overflow: hidden;
         }
 
         .particle {
@@ -46,7 +43,6 @@
 
         @keyframes floatUp {
             0% { transform: translateY(110vh) scale(0); opacity: 0; }
-            50% { opacity: 0.3; }
             100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
         }
 
@@ -62,7 +58,7 @@
         .logo-img {
             width: 80px; height: 80px; border-radius: 20px;
             background: linear-gradient(45deg, var(--primary-glow), var(--accent-purple));
-            overflow: hidden; box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            overflow: hidden; box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
             border: 2px solid rgba(255,255,255,0.1);
         }
 
@@ -72,34 +68,40 @@
         .brand-text .scripts-word { color: var(--primary-glow); }
         .brand-text p { font-size: 12px; letter-spacing: 3px; color: var(--text-dim); margin-top: 5px; font-weight: bold; }
 
-        /* --- SEARCH --- */
-        .search-container { max-width: 500px; margin: 0 auto 60px; padding: 0 20px; }
+        /* --- SEARCH BAR --- */
+        .search-container { max-width: 500px; margin: 0 auto 50px; padding: 0 20px; position: relative; }
         .search-container input { 
             width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(99, 102, 241, 0.3); 
-            padding: 18px 25px; border-radius: 50px; color: white; outline: none; transition: 0.3s; 
+            padding: 18px 25px; border-radius: 50px; color: white; outline: none; transition: 0.3s;
+            font-size: 16px;
         }
         .search-container input:focus { border-color: var(--primary-glow); box-shadow: 0 0 20px rgba(99, 102, 241, 0.2); }
+        .search-icon { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); color: var(--text-dim); opacity: 0.5; }
 
-        /* --- TITLES --- */
+        /* --- HERO SECTION --- */
+        .hero { text-align: center; margin-bottom: 60px; padding: 0 20px; }
+        .update-tag { background: rgba(99, 102, 241, 0.15); color: var(--primary-glow); padding: 8px 20px; border-radius: 50px; font-size: 11px; font-weight: 800; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(99, 102, 241, 0.2); text-transform: uppercase; }
+        .hero h2 { font-size: 38px; font-weight: 900; text-transform: uppercase; font-style: italic; line-height: 1.1; margin-bottom: 15px; }
+        .hero h2 span { background: linear-gradient(to bottom, #a5b4fc, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p.sub { color: var(--text-dim); font-size: 14px; line-height: 1.6; }
+
+        /* --- SECTION TITLES --- */
         .section-title { padding-left: 5%; font-size: 22px; font-weight: 900; font-style: italic; text-transform: uppercase; margin-bottom: 25px; margin-top: 40px; border-left: 4px solid var(--primary-glow); margin-left: 5%; }
 
         /* --- CARDS --- */
         .card-grid { padding: 0 5%; display: flex; flex-direction: column; gap: 20px; }
-
         .script-card, .exec-card {
             background: var(--bg-card); border-radius: 25px; padding: 25px;
             border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(10px);
             transition: 0.3s;
         }
-
         .card-header { display: flex; align-items: center; gap: 20px; margin-bottom: 15px; }
-        .game-icon { width: 70px; height: 70px; border-radius: 18px; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); background: #000; box-shadow: 0 0 15px rgba(99, 102, 241, 0.2); }
-
-        .status-tag { font-size: 10px; font-weight: 800; color: var(--success); text-transform: uppercase; display: flex; align-items: center; gap: 5px; }
-        .download-tag { font-size: 10px; font-weight: 800; color: var(--warning); text-transform: uppercase; }
+        .game-icon { width: 70px; height: 70px; border-radius: 18px; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); background: #000; }
         
+        .status-tag { font-size: 10px; font-weight: 800; color: var(--success); text-transform: uppercase; margin-bottom: 4px; display: block; }
+        .download-tag { font-size: 10px; font-weight: 800; color: var(--warning); text-transform: uppercase; margin-bottom: 4px; display: block; }
         .card-title { font-size: 22px; font-weight: 900; font-style: italic; text-transform: uppercase; }
-        .card-desc { color: var(--text-dim); font-size: 13px; }
+        .card-desc { color: var(--text-dim); font-size: 13px; margin-top: 4px; }
 
         .script-display { 
             background: rgba(0,0,0,0.3); border-radius: 12px; padding: 15px; 
@@ -107,17 +109,18 @@
             overflow: hidden; text-overflow: ellipsis; white-space: nowrap; border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .dl-btn, .copy-btn { 
+        .btn { 
             width: 100%; background: var(--primary-glow); color: white; border: none; 
             padding: 16px; border-radius: 15px; font-weight: 800; cursor: pointer; transition: 0.3s; 
             text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px;
+            text-transform: uppercase;
         }
-        .dl-btn:hover, .copy-btn:hover { background: var(--accent-purple); transform: translateY(-3px); }
+        .btn:hover { background: var(--accent-purple); transform: translateY(-3px); box-shadow: 0 8px 15px rgba(99, 102, 241, 0.2); }
 
-        /* --- BOT --- */
-        .help-container { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; align-items: flex-end; z-index: 100; }
-        .bot-btn { width: 65px; height: 65px; background: linear-gradient(135deg, var(--primary-glow), var(--accent-purple)); border-radius: 22px; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); }
-
+        /* --- FLOATING BOT --- */
+        .help-container { position: fixed; bottom: 30px; right: 30px; z-index: 100; text-align: right; }
+        .help-bubble { background: var(--accent-purple); padding: 8px 15px; border-radius: 15px 15px 5px 15px; font-size: 11px; font-weight: bold; margin-bottom: 10px; display: inline-block; }
+        .bot-btn { width: 65px; height: 65px; background: linear-gradient(135deg, var(--primary-glow), var(--accent-purple)); border-radius: 22px; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); margin-left: auto; }
     </style>
 </head>
 <body>
@@ -134,55 +137,67 @@
         </div>
     </header>
 
+    <div class="search-container">
+        <input type="text" placeholder="Search scripts...">
+        <span class="search-icon">🔍</span>
+    </div>
+
+    <div class="hero">
+        <div class="update-tag">Updated Scripts</div>
+        <h2>EXPERIENCE THE<br><span>NEXT LEVEL</span> OF<br>EXPLOITING</h2>
+        <p class="sub">Verified, safe, and mobile-compatible scripts.<br>Powered by Ohio Scripts.</p>
+    </div>
+
     <div class="section-title">Latest Releases</div>
     <div class="card-grid">
         <div class="script-card">
             <div class="card-header">
                 <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477548795813298176/noFilter_1.webp?ex=69a52a0c&is=69a3d88c&hm=ef181e03cd28c9334f4b384324a66e83b2e23b017e866c8c66072c61d2dc2b6d&" class="game-icon">
                 <div>
-                    <div class="status-tag">● Working</div>
+                    <span class="status-tag">● Working</span>
                     <div class="card-title">Tsunami Script</div>
+                    <p class="card-desc">Escape Tsunami For Brainrots!</p>
                 </div>
             </div>
             <div class="script-display">loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()</div>
-            <button class="copy-btn" onclick="copyAction()">COPY SCRIPT 📋</button>
+            <button class="btn" onclick="copyAction()">COPY SCRIPT 📋</button>
         </div>
     </div>
 
     <div class="section-title">Execute Download Links</div>
     <div class="card-grid">
-        
         <div class="exec-card">
             <div class="card-header">
-                <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477551259245609060/images_3.jpg?ex=69a52c57&is=69a3dad7&hm=63d72652acb302802e62a40e114ba083ceb9f51128cbf327f9b738c217d9a07b&" class="game-icon" alt="Delta Logo">
+                <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477551259245609060/images_3.jpg?ex=69a52c57&is=69a3dad7&hm=63d72652acb302802e62a40e114ba083ceb9f51128cbf327f9b738c217d9a07b&" class="game-icon">
                 <div>
-                    <div class="download-tag">Mobile / PC</div>
+                    <span class="download-tag">Mobile / PC</span>
                     <div class="card-title">Delta Executor</div>
-                    <div class="card-desc">Elite Performance.</div>
+                    <p class="card-desc">Elite Performance.</p>
                 </div>
             </div>
-            <a href="https://deltaexploits.gg/" target="_blank" class="dl-btn">DOWNLOAD DELTA 🚀</a>
+            <a href="https://deltaexploits.gg/" target="_blank" class="btn">DOWNLOAD 🚀</a>
         </div>
 
         <div class="exec-card">
             <div class="card-header">
-                <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477551231072337971/unnamed.png?ex=69a52c51&is=69a3dad1&hm=25003e4305d0708a07ee4ead1d2798f82622c326b5ede32ca6c0404479f861eb&" class="game-icon" alt="All-In-One Logo">
+                <img src="https://cdn.discordapp.com/attachments/1375087867084144763/1477551231072337971/unnamed.png?ex=69a52c51&is=69a3dad1&hm=25003e4305d0708a07ee4ead1d2798f82622c326b5ede32ca6c0404479f861eb&" class="game-icon">
                 <div>
-                    <div class="download-tag">Multi-Device</div>
+                    <span class="download-tag">Multi-Device</span>
                     <div class="card-title">All-In-One Hub</div>
-                    <div class="card-desc">Executors for every platform.</div>
+                    <p class="card-desc">Executors for every platform.</p>
                 </div>
             </div>
-            <a href="https://wearedevs.net/exploits" target="_blank" class="dl-btn">BROWSE ALL 📁</a>
+            <a href="https://wearedevs.net/exploits" target="_blank" class="btn">DOWNLOAD 📁</a>
         </div>
-
     </div>
 
     <div class="help-container">
+        <div class="help-bubble">You Need Help?</div>
         <div class="bot-btn" onclick="window.open('https://discord.gg/VVzPXAG5d', '_blank')">🤖</div>
     </div>
 
     <script>
+        // Particle Background
         const container = document.getElementById('particle-container');
         for (let i = 0; i < 35; i++) {
             const p = document.createElement('div');
@@ -197,7 +212,7 @@
         function copyAction() {
             const script = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/luacoder312/ohioscripts/refs/heads/main/loader.lua"))()';
             navigator.clipboard.writeText(script);
-            window.open("https://www.youtube.com/@TheOhioScripts", "_blank");
+            alert("Script Copied!");
         }
     </script>
 </body>
